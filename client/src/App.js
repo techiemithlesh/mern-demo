@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Routes, redirect} from 'react-router-dom';
-import axios from 'axios';
-
 import Home from './pages/Home';
 import Login from './admin/pages/Login';
 

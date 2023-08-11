@@ -12,7 +12,7 @@ const Project = ({ title, description, image, githubLink, demoLink, technologies
         <img className="w-full mb-6" src={imagePath} alt={title} />
         <div className="flex mb-4">
           {technologies.map((technology, index) => (
-            <a key={index} className="btn btn-primary mr-2">
+            <a href="#" key={index} className="btn btn-primary mr-2">
               {technology} </a>
             
           ))}

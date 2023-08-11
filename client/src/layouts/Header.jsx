@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-scroll';
 import './Layout.css'
 const Header = () => {
@@ -10,10 +10,9 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleSetActive = (to) => {
-    setActiveSection(to);
-    console.log(to);
-  }
+  // const handleSetActive = (to) => {
+  //   setActiveSection(to);
+  // }
   
 
   return (

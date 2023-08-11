@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Project from "./Project";
 
 const Projects = () => {
-  const projectUrl = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`; // Corrected variable name here
-  console.log("The Project url is ", projectUrl);
+  const projectUrl = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`; 
+
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
