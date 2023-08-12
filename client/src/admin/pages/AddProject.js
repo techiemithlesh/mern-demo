@@ -13,7 +13,7 @@ function AddProject() {
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
   };
-
+const API_URL = `${process.env.API_URL}/api/projects`;
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -25,7 +25,7 @@ function AddProject() {
     formData.append('demoLink', demoLink);
     console.log(formData);
     try {
-      const response = await fetch('http://localhost:5000/api/projects', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         body: formData
       });

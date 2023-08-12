@@ -4,9 +4,9 @@ import AdminLayout from '../layout/AdminLayout';
 
 function ViewContact() {
     const [contacts, setContacts] = useState([]);
-  
+    const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/contact`;
     useEffect(() => {
-      axios.get('http://localhost:5000/api/contact')
+      axios.get(API_URL)
         .then(response => {
           setContacts(response.data);
           console.log(response.data);
@@ -17,7 +17,7 @@ function ViewContact() {
     }, []);
   
     const handleDelete = (id) => {
-      axios.delete(`http://localhost:5000/api/contact/${id}`)
+      axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`)
         .then(response => {
           setContacts(contacts.filter(contact => contact._id !== id));
         })

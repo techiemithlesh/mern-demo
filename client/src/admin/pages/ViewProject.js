@@ -4,13 +4,15 @@ import axios from 'axios';
 
 function ViewProject() {
     const [projects, setProjects] = useState([]);
-
+    const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`;
     useEffect(() => {
-        fetch('http://localhost:5000/api/projects').then(res => res.json()).then(data => setProjects(data)).catch(err => console.log(err));
+        fetch(API_URL).then(res => res.json()).then(data => setProjects(data)).catch(err => console.log(err));
     }, []);
+    
+    
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/api/projects/${id}`).then(response => {
+        axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`).then(response => {
             setProjects(projects.filter(project => project._id !== id));
         }).catch(error => {
             console.log(error);
@@ -47,7 +49,7 @@ function ViewProject() {
                                 }</td>
                                 <td className="border px-4 py-2">
                                     <img src={
-                                            `http://localhost:5000/images/${
+                                            `${process.env.REACT_APP_BACKEND_API_URL}/images/${
                                                 project.image
                                             }`
                                         }

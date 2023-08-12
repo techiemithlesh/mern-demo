@@ -7,13 +7,14 @@ import { setAuthToken } from '../../utils/auth';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/auth/login`;
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', {email, password});
+            const response = await axios.post(API_URL, {email, password});
             if (response.status === 200) {
                setAuthToken(); 
                 navigate('/admin/dashboard');

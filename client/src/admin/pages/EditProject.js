@@ -14,10 +14,11 @@ function EditProject() {
   const [imageFile, setImageFile] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-
+  
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/projects/${id}`)
+    axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`)
       .then(response => {
+        console.log(response);
         setProject(response.data);
       })
       .catch(error => {
@@ -48,7 +49,7 @@ function EditProject() {
       formData.append('image', imageFile);
     }
 
-    axios.patch(`http://localhost:5000/api/projects/${id}`, formData, {
+    axios.patch(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
