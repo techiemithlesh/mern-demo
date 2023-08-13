@@ -17,8 +17,9 @@ function ViewContact() {
     }, []);
   
     const handleDelete = (id) => {
-      axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`)
+      axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/api/contact/${id}`)
         .then(response => {
+          
           setContacts(contacts.filter(contact => contact._id !== id));
         })
         .catch(error => {

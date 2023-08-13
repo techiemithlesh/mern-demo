@@ -13,7 +13,7 @@ function AddProject() {
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
   };
-const API_URL = `${process.env.API_URL}/api/projects`;
+const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`;
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
