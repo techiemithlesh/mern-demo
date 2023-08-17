@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import AdminLayout from '../layout/AdminLayout';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 function ViewProject() {
     const [projects, setProjects] = useState([]);
@@ -14,8 +15,14 @@ function ViewProject() {
     const handleDelete = (id) => {
         axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/${id}`).then(response => {
             setProjects(projects.filter(project => project._id !== id));
+            toast.success("Project Deleted Successfully!", {
+                position: 'top-right',
+            });
         }).catch(error => {
             console.log(error);
+            toast.error("Project Not Deleted", {
+                position: 'top-right',
+            })
         });
     };
 

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-
+import { toast } from 'react-hot-toast';
+import contactImg from '../asset/img/contact.svg';
 const ContactUs = () => {
   const contactUrl = `${process.env.REACT_APP_BACKEND_API_URL}/api/contact`
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     email: '',
     message: ''
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = e => {
     setFormData({
@@ -17,7 +19,7 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    
     
     try {
       const response = await fetch(contactUrl, {
@@ -30,9 +32,16 @@ const ContactUs = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        toast.success("Message Submitted Successfully", {
+          position: 'top-center',
+        });
+        setFormData(initialFormData);
+       
       } else {
-        throw new Error('Something went Wrong')
+        throw new Error('Something went Wrong');
+        toast.error("Please enter required details", {
+          position: 'top-center',
+        })
       }
 
     } catch (error) {
@@ -44,8 +53,10 @@ const ContactUs = () => {
   return (
     <div className="bg-gray-100 py-10" id='contact'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap">
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img src="https://images.unsplash.com/photo-1479920252409-6e3d8e8d4866?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="contact" className="w-full h-full object-cover object-center" />
+        <div className="w-full md:w-1/2 mb-6 md:mb-0 bg-white p-4 rounded-sm">
+          <div className='img-container h-full  py-4 relative'>
+          <img src={contactImg} alt="contact" className="absolute top-0 left-0 w-full h-full object-cover object-center" />
+          </div>
         </div>
         <div className="w-full md:w-1/2 px-4">
           <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl mb-4">Get in touch</h2>

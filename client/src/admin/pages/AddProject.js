@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import AdminLayout from '../layout/AdminLayout';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 function AddProject() {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -38,9 +39,15 @@ const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`;
       setTechnologies('');
       setGithubLink('');
       setDemoLink('');
+      toast.success("Project Added Succeesfully!", {
+        position: 'top-right',
+      });
       navigate('/admin/projects')
     } catch (error) {
       console.error(error);
+      toast.error("Project not added", {
+        position: 'top-right',
+      })
     }
   };
   

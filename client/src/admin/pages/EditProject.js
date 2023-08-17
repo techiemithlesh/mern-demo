@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
 import AdminLayout from '../layout/AdminLayout';
+import { toast } from 'react-hot-toast';
 
 function EditProject() {
     const [project, setProject] = useState({
@@ -59,11 +60,15 @@ function EditProject() {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-
-            console.log(response.data);
+            toast.success("Project Updated Successfully!", {
+                position: 'top-right',
+            });
             navigate('/admin/projects');
         } catch (error) {
             console.log(error);
+            toast.error("Error", {
+                position: 'top-right',
+            })
         }
     };
 

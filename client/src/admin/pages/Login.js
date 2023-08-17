@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import Cookies from 'js-cookie';
+
 import { setAuthToken } from '../../utils/auth';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -18,8 +19,14 @@ const Login = () => {
             if (response.status === 200) {
                setAuthToken(); 
                 navigate('/admin/dashboard');
+                toast.success("Login Successfully", {
+                    position: 'top-right',
+                });
             } else {
                 console.log('Not working');
+                toast.error("Oops someting went wrong", {
+                    position: 'top-right',
+                })
             }
         } catch (error) {
             console.log(error);

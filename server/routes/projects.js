@@ -92,6 +92,17 @@ router.patch('/:id', upload.single('image'), getProject, async (req,res) => {
         res.project.githubLink = req.body.githubLink;
     }
     try {
+        // Delete old image if a new image is uploaded
+        if (req.file) {
+            const oldImagePath = path.join('./public/images', res.project.image);
+            fs.unlinkSync(oldImagePath); // Delete old image
+            const resizedImage = await sharp(req.file.path)
+                .resize(800, 600)
+                .toBuffer();
+            await sharp(resizedImage).toFile(req.file.path);
+            res.project.image = req.file.filename;
+        }
+
         const updatedProject = await res.project.save();
         res.json(updatedProject);
     } catch (error) {
@@ -106,7 +117,11 @@ router.delete('/:id', async (req, res) => {
       if (!project) {
         return res.status(404).json({ message: 'Project not found' });
       }
+      // Delete associated image file from server
+      const imagePath = path.join('./public/images', project.image);
+      fs.unlinkSync(imagePath); // Delete image file
       res.json({ message: 'Project deleted successfully' });
+      
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

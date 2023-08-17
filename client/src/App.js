@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes, redirect} from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import Login from './admin/pages/Login';
 
@@ -25,7 +26,7 @@ const App = () => {
           <Route path="/admin/login" element={<Login />} />
           
            {/* Private routes */}
-           <Route path="/admin/dashboard" element={<PrivateRoute><Admindashboard /></PrivateRoute>}/>              
+          <Route path="/admin/dashboard" element={<PrivateRoute><Admindashboard /></PrivateRoute>}/>              
           <Route path='/admin/projects' element={<PrivateRoute><ViewProject/></PrivateRoute>}/>
           <Route path='/admin/projects/new' element={<PrivateRoute><AddProject/></PrivateRoute>}/>
           <Route path='/admin/projects/edit/:id' element={<PrivateRoute><EditProject/></PrivateRoute>}/>
@@ -34,6 +35,7 @@ const App = () => {
         {/* not found routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Toaster/>
       </Router>
     );
 };

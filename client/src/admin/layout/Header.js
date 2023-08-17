@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../asset/img/logo.png';
 
 import { removeAuthToken } from '../../utils/auth';
+import { toast } from 'react-hot-toast';
 
 
 const Header = () => {
@@ -15,10 +16,13 @@ const Header = () => {
     try {
       console.log("User Logout");
       removeAuthToken();
-      console.log("Token romoved");
+      toast.success("Logout Successfully!", {
+        position: 'top-right',
+      });
       navigate('/admin/login');
     } catch (error) {
       console.log('Failed to log out:', error.message);
+      toast.error("Oops Something went wrong", {error});
     }
   };
   

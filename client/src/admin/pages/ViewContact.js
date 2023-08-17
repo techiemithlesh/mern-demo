@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminLayout from '../layout/AdminLayout';
+import { toast } from 'react-hot-toast';
 
 function ViewContact() {
     const [contacts, setContacts] = useState([]);
@@ -19,11 +20,16 @@ function ViewContact() {
     const handleDelete = (id) => {
       axios.delete(`${process.env.REACT_APP_BACKEND_API_URL}/api/contact/${id}`)
         .then(response => {
-          
+          toast.success("Contact Deleted Successfuly", {
+            position: 'top-right',
+          })
           setContacts(contacts.filter(contact => contact._id !== id));
         })
         .catch(error => {
           console.log(error);
+          toast.error("Error", {
+            position: 'top-right',
+          });
         });
     };
   
