@@ -54,8 +54,8 @@ const ContactUs = () => {
     <div className="bg-gray-100 py-10" id='contact'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap">
         <div className="w-full md:w-1/2 mb-6 md:mb-0 bg-white p-4 rounded-sm">
-          <div className='img-container h-full  py-4 relative'>
-          <img src={contactImg} alt="contact" className="absolute top-0 left-0 w-full h-full object-cover object-center" />
+          <div className='img-container h-64 md:h-full  py-4 relative'>
+          <img src={contactImg} alt="mithlesh_patel" loading='lazy' className="absolute top-0 left-0 w-full h-full object-cover object-center" />
           </div>
         </div>
         <div className="w-full md:w-1/2 px-4">

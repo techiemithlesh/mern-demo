@@ -32,7 +32,7 @@ const Hero = () => {
             </div>
           </div>
           <div className='w-full md:w-1/2 py-4 md:py-0'>
-            <img className='hero_img object-cover mx-auto' src={Image} alt='Mithlesh Patel' />
+            <img className='hero_img object-cover mx-auto' src={Image} loading='lazy' alt='Mithlesh Patel' />
           </div>
         </div>
       </section>

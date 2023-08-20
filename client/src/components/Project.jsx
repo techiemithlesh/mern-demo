@@ -7,19 +7,19 @@ const Project = ({ title, description, image, githubLink, demoLink, technologies
   const imagePath = `${BACKEND_SERVER_URL}/images/${image}`;
   console.log(technologies);
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 px-4">
-      <div className="border border-gray-300 shadow-md rounded-lg p-6">
-        <img className="w-full mb-6" src={imagePath} alt={title} />
-        <div className="flex mb-4">
+    <div className="w-full md:w-1/2 lg:w-1/3 px-4 relative">
+      <div className="border border-gray-300 shadow-md rounded-lg p-6 mb-4 md:mb-0">
+        <img className="w-full mb-6" src={imagePath} loading="lazy" alt={title} />
+        <div className="flex mb-4 technology_container absolute top-2 right-5">
           {technologies.map((technology, index) => (
-            <a href="#" key={index} className="btn btn-primary mr-2">
+            <a href="#" key={index} className="technology_btn mr-2 text-sm text-center bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded-full">
               {technology} </a>
             
           ))}
         </div>
         <h3 className="text-lg font-semibold mb-4">{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <a
             href={githubLink}
             target="_blank"
