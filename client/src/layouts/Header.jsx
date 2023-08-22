@@ -1,24 +1,28 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import './Layout.css'
-const Header = () => {
+import './Layout.css';
+import { FiSun, FiMoon } from 'react-icons/fi';
+
+const Header = ({darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-
-
+  console.log("Toggle Dark Mode", toggleDarkMode);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // const handleSetActive = (to) => {
-  //   setActiveSection(to);
-  // }
-  
-
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <header
+      className={`fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
+        darkMode ? 'dark' : ''
+      }`}
+    >
       <nav className="container px-4 md:px-8 flex justify-between items-center py-4">
-        <div className="text-gray-800 text-lg font-bold cursor-pointer">
+        <div
+          className={`text-lg font-bold cursor-pointer ${
+            darkMode ? 'text-white' : 'text-gray-800'
+          }`}
+        >
           Mithlesh Patel
         </div>
         <div className="md:hidden">
@@ -67,15 +71,19 @@ const Header = () => {
             isMenuOpen ? 'block' : 'hidden'
           } md:block md:flex space-y-4 md:space-y-0 md:space-x-4`}
         >
-           <li>
-            <Link 
+          <li>
+            <Link
               to="home"
               spy={true}
               smooth={true}
               duration={500}
               onSetActive={() => setActiveSection('home')}
-              className={`text-gray-800 hover:text-indigo-500 cursor-pointer block md:inline-block ${
-                activeSection === 'home' ? 'font-bold border-b-2 border-red-500' : ''
+              className={`${
+                darkMode
+                  ? 'text-white hover:text-indigo-500 border-indigo-500'
+                  : 'text-gray-800 hover:text-indigo-500 border-red-500'
+              } cursor-pointer block md:inline-block ${
+                activeSection === 'home' ? 'font-bold' : ''
               }`}
               onClick={toggleMenu}
             >
@@ -83,16 +91,19 @@ const Header = () => {
             </Link>
           </li>
 
-
           <li>
-            <Link 
+            <Link
               to="services"
               spy={true}
               smooth={true}
               duration={500}
               onSetActive={() => setActiveSection('services')}
-              className={`text-gray-800 hover:text-indigo-500 cursor-pointer block md:inline-block ${
-                activeSection === 'services' ? 'font-bold border-b-2 border-red-500' : ''
+              className={`${
+                darkMode
+                  ? 'text-white hover:text-indigo-500 border-indigo-500'
+                  : 'text-gray-800 hover:text-indigo-500 border-red-500'
+              } cursor-pointer block md:inline-block ${
+                activeSection === 'services' ? 'font-bold' : ''
               }`}
               onClick={toggleMenu}
             >
@@ -100,16 +111,19 @@ const Header = () => {
             </Link>
           </li>
 
-
           <li>
-            <Link 
+            <Link
               to="project"
               spy={true}
               smooth={true}
               duration={500}
               onSetActive={() => setActiveSection('project')}
-              className={`text-gray-800 hover:text-indigo-500 cursor-pointer block md:inline-block ${
-                activeSection === 'project' ? 'font-bold border-b-2 border-red-500' : ''
+              className={`${
+                darkMode
+                  ? 'text-white hover:text-indigo-500 border-indigo-500'
+                  : 'text-gray-800 hover:text-indigo-500 border-red-500'
+              } cursor-pointer block md:inline-block ${
+                activeSection === 'project' ? 'font-bold' : ''
               }`}
               onClick={toggleMenu}
             >
@@ -118,34 +132,55 @@ const Header = () => {
           </li>
 
           <li>
-            <Link 
+            <Link
+              to="testimonial"
+              spy={true}
+              smooth={true}
+              duration={500}
+              onSetActive={() => setActiveSection('testimonial')}
+              className={`${
+                darkMode
+                  ? 'text-white hover:text-indigo-500 border-indigo-500'
+                  : 'text-gray-800 hover:text-indigo-500 border-red-500'
+              } cursor-pointer block md:inline-block ${
+                activeSection === 'testimonial' ? 'font-bold' : ''
+              }`}
+              onClick={toggleMenu}
+            >
+              Testimonials
+            </Link>
+          </li>
+
+          <li>
+            <Link
               to="contact"
               spy={true}
               smooth={true}
               duration={500}
               onSetActive={() => setActiveSection('contact')}
-              className={`text-gray-800 hover:text-indigo-500 cursor-pointer block md:inline-block ${
-                activeSection === 'contact' ? 'font-bold border-b-2 border-red-500' : ''
+              className={`${
+                darkMode
+                  ? 'text-white hover:text-indigo-500 border-indigo-500'
+                  : 'text-gray-800 hover:text-indigo-500 border-red-500'
+              } cursor-pointer block md:inline-block ${
+                activeSection === 'contact' ? 'font-bold' : ''
               }`}
               onClick={toggleMenu}
             >
               Contacts
             </Link>
-            
           </li>
 
-          {/* <li>
-          <a
-              href='https://www.linkedin.com/in/mithlesh-12/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='hire_me_btn pulse_btn px-4'
-            >
-              Hire Me
-            </a>
-            
-          </li> */}
-
+          <li>
+          <button className='dark_mode_btn' onClick={toggleDarkMode}>
+  {darkMode ? (
+     <FiSun className="dark-mode-icon text-white" />
+    
+  ) : (
+    <FiMoon className="dark-mode-icon" />
+  )}
+</button>
+          </li>
         </ul>
       </nav>
     </header>

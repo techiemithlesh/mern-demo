@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Project = ({ title, description, image, githubLink, demoLink, technologies }) => {
+const Project = ({ title, description, image, githubLink, demoLink, technologies, darkMode }) => {
   const BACKEND_SERVER_URL = process.env.REACT_APP_BACKEND_API_URL;
   const imagePath = `${BACKEND_SERVER_URL}/images/${image}`;
-  console.log(technologies);
+  
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 px-4 relative">
       <div className="border border-gray-300 shadow-md rounded-lg p-6 mb-4 md:mb-0">
@@ -17,7 +17,7 @@ const Project = ({ title, description, image, githubLink, demoLink, technologies
             
           ))}
         </div>
-        <h3 className="text-lg font-semibold mb-4">{title}</h3>
+        <h3 className={`text-lg font-semibold mb-4 ${darkMode ? 'text-white' : 'text-black'}`}>{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
         <div className="flex items-center ">
           <a

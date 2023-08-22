@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import contactImg from '../asset/img/contact.svg';
-const ContactUs = () => {
+const ContactUs = ({darkMode}) => {
   const contactUrl = `${process.env.REACT_APP_BACKEND_API_URL}/api/contact`
   const initialFormData = {
     name: '',
@@ -51,7 +51,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-10" id='contact'>
+    <div className={`py-10 ${darkMode ? 'bg-black' : 'bg-white'}`} id='contact'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap">
         <div className="w-full md:w-1/2 mb-6 md:mb-0 bg-white p-4 rounded-sm">
           <div className='img-container h-64 md:h-full  py-4 relative'>
@@ -64,17 +64,17 @@ const ContactUs = () => {
           <form className="grid grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} 
+              <input type="text" style={{ border: '1px solid #ccc' }} id="name" name="name" value={formData.name} onChange={handleChange} 
               className="shadow-sm block w-full sm:text-sm py-1 rounded-md px-2" />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} 
+              <input type="email" style={{ border: '1px solid #ccc' }} id="email" name="email" value={formData.email} onChange={handleChange} 
               className="shadow-sm block w-full sm:text-sm py-1 rounded-md px-2" />
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-              <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} 
+              <textarea id="message" style={{ border: '1px solid #ccc' }} name="message" rows="4" value={formData.message} onChange={handleChange} 
               className="shadow-sm py-1 px-2 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
             </div>
             <div>

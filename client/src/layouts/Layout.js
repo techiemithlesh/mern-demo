@@ -3,11 +3,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTopButton from "./ScrollToTopButton";
 import { Helmet } from "react-helmet";
-
+import { useDarkMode } from "../context/DarkModeContext";
 
 const Layout = ({ children, title, description, keywords, author }) => {
+  const {darkMode, toggleDarkMode } = useDarkMode();
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className={`flex flex-col min-h-screen ${darkMode ? 'dark' : 'light'}`}>
         <Helmet>
         <meta charSet='utf-8'/>
         <meta name='description' content={description}/>
@@ -15,7 +16,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
         <meta name='author' content={author} />
         <title>{title}</title>
       </Helmet>
-      <Header />
+      <Header  darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       <main className="flex-grow">{children}</main>
       <Footer />
       <ScrollToTopButton />

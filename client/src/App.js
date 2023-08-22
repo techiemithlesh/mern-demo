@@ -12,6 +12,7 @@ import ViewProject from './admin/pages/ViewProject';
 import AdminContact from './admin/pages/ViewContact';
 import AddProject from './admin/pages/AddProject';
 import EditProject from './admin/pages/EditProject';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 const App = () => {
  
@@ -19,7 +20,8 @@ const App = () => {
     return (
      
         <Router>
-        <Routes>
+         <DarkModeProvider>
+         <Routes>
            
            {/* public routes */}
           <Route path="/" element={<Home />} />
@@ -35,6 +37,7 @@ const App = () => {
         {/* not found routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+         </DarkModeProvider>
       <Toaster/>
       </Router>
     );
