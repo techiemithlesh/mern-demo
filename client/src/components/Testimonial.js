@@ -9,7 +9,7 @@ const Testimonial = ({ name, review, image, darkMode }) => {
     <div className={`w-72 mx-auto text-center p-4 shadow rounded-md ${darkMode ? 'bg-gray-200' : 'bg-white'}`}>
       <div className="rounded-full w-32 h-32 mx-auto bg-gray-300 flex items-center justify-center overflow-hidden">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           src={imageUrl}
           alt={name}
           loading="lazy"

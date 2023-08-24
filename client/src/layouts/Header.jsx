@@ -6,7 +6,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 const Header = ({darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  console.log("Toggle Dark Mode", toggleDarkMode);
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -34,11 +34,12 @@ const Header = ({darkMode, toggleDarkMode }) => {
             {isMenuOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className={`h-6 w-6 ${darkMode ? 'text-white' : 'text-black'}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 aria-hidden="true"
+                style={{ stroke: darkMode ? 'white' : '' }}
               >
                 <path
                   strokeLinecap="round"
@@ -55,6 +56,7 @@ const Header = ({darkMode, toggleDarkMode }) => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 aria-hidden="true"
+                style={{ stroke: darkMode ? 'white' : '' }}
               >
                 <path
                   strokeLinecap="round"

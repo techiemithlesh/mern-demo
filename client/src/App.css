@@ -141,3 +141,15 @@ body{
 .blur-effect {
   backdrop-filter: blur(5px);
 }
+
+.white-stroke {
+  stroke: white !important;
+}
+
+.slick-next {
+  right: 0px !important;
+}
+
+.slick-prev{
+  left: 0 !important;
+}
