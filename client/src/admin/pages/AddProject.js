@@ -2,6 +2,7 @@ import { useState } from 'react';
 import AdminLayout from '../layout/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+
 function AddProject() {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -15,6 +16,7 @@ function AddProject() {
     setImage(event.target.files[0]);
   };
 const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/projects`;
+console.log("API_URL:", API_URL);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

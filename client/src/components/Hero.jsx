@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import Image from '../asset/img/mithlesh.png';
 
-const Hero = () => {
+const Hero = ({darkMode}) => {
   return (
     <>
       <section className='bg-gray-800 text-white py-10' id='home'>
@@ -10,7 +10,7 @@ const Hero = () => {
           <div className='w-full md:w-1/2'>
             <span className='text-yellow-300 pb-4'>Hello, I am</span>
             <h2 className='font-bold text-2xl tracking-wide leading-relaxed uppercase my-2 antialiased'>Mithlesh Patel</h2>
-            <p className='mb-8 tracking-wide capitalize'>I am a full-stack web developer with experience in PHP LARAVEL, React, Node.js, and more.</p>
+            <p className='mb-8 tracking-wide capitalize'>Explore My Work And Discover How I Can Help You Build Your Next Web Project.</p>
             <div className='flex flex-wrap mb-8'>
               <Link
                 to='project'
@@ -22,9 +22,9 @@ const Hero = () => {
                 View My Work
               </Link>
               <a
-              href='https://www.linkedin.com/in/mithlesh-12/'
-              target='_blank' // Opens the link in a new tab
-              rel='noopener noreferrer' // Recommended for security reasons when using target="_blank"
+              href='https://wa.me/7667043372?text='
+              target='_blank'
+              rel='noopener noreferrer'
               className='hire_me_btn pulse_btn px-4'
             >
               Hire Me

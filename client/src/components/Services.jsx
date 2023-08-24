@@ -95,7 +95,7 @@ const Services = ({ darkMode }) => {
           >
             Our Services
           </h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-4 text-lg font-semibold text-sm text-blue-600 hover:underline cursor-pointer">
             We offer a range of services to help you achieve your business
             goals.
           </p>
@@ -104,7 +104,7 @@ const Services = ({ darkMode }) => {
           {servicesData.map((service, index) => (
             <div
               className={`rounded-lg shadow-lg p-6 flex flex-col items-center ${
-                darkMode ? "bg-gray-400 " : "bg-white text-black"
+                darkMode ? "bg-gray-300" : "bg-white text-black"
               }`}
               key={index}
             >

@@ -18,7 +18,7 @@ const Project = ({ title, description, image, githubLink, demoLink, technologies
           ))}
         </div>
         <h3 className={`text-lg font-semibold mb-4 ${darkMode ? 'text-white' : 'text-black'}`}>{title}</h3>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <p className={`mb-4 ${darkMode ? 'text-gray-100' : 'text-gray-700'}`}>{description}</p>
         <div className="flex items-center ">
           <a
             href={githubLink}

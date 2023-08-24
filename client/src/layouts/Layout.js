@@ -18,7 +18,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
       </Helmet>
       <Header  darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       <main className="flex-grow">{children}</main>
-      <Footer />
+      <Footer darkMode={darkMode}/>
       <ScrollToTopButton />
     </div>
   );

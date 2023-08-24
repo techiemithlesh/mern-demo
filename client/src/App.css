@@ -125,4 +125,19 @@ body{
     box-shadow: 0 0 0 0 transparent;
   }
 }
+.dark_background{
+  background-color: rgba(28, 28, 28, 0.6);
+}
 
+.dark-mode-overlay {
+  background-color: rgba(28, 28, 28, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.blur-effect {
+  backdrop-filter: blur(5px);
+}
