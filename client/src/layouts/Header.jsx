@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './Layout.css';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import Resume from '../asset/pdf/resume.pdf';
+
 
 const Header = ({darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,7 +73,7 @@ const Header = ({darkMode, toggleDarkMode }) => {
         <ul
           className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } md:block md:flex space-y-4 md:space-y-0 md:space-x-4`}
+          } md:block md:flex space-y-4 md:space-y-0 md:space-x-4 items-center`}
         >
           <li>
             <Link
@@ -172,7 +174,15 @@ const Header = ({darkMode, toggleDarkMode }) => {
               Contacts
             </Link>
           </li>
+          <li>
+             <a href={Resume} download><button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+            <span class="relative px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Download Resume
+            </span>
+          </button>
+          </a>
 
+          </li>
           <li>
           <button className='dark_mode_btn' onClick={toggleDarkMode}>
   {darkMode ? (
